@@ -12,7 +12,7 @@ const App = () => {
   const [sortId, setSortId] = React.useState("newest");
 
   return (
-    <ThemeProvider theme={{ queries: QUERIES }}>
+    <ThemeProvider theme={{ queries: QUERIES, color: "red" }}>
       <Header />
       <Main>
         <ShoeIndex sortId={sortId} setSortId={setSortId} />
