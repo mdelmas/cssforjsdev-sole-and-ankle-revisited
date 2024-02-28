@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import styled from 'styled-components/macro';
-import { DialogOverlay, DialogContent } from '@reach/dialog';
+import React from "react";
+import styled from "styled-components/macro";
+import { DialogOverlay, DialogContent } from "@reach/dialog";
 
-import UnstyledButton from '../UnstyledButton';
-import Icon from '../Icon';
-import VisuallyHidden from '../VisuallyHidden';
+import UnstyledButton from "../UnstyledButton";
+import Icon from "../Icon";
+import VisuallyHidden from "../VisuallyHidden";
+import { COLORS } from "../../constants";
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   if (!isOpen) {
@@ -13,23 +14,107 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   }
 
   return (
-    <div>
-      <button onClick={onDismiss}>Dismiss menu</button>
-      <nav>
-        <a href="/sale">Sale</a>
-        <a href="/new">New&nbsp;Releases</a>
-        <a href="/men">Men</a>
-        <a href="/women">Women</a>
-        <a href="/kids">Kids</a>
-        <a href="/collections">Collections</a>
-      </nav>
-      <footer>
-        <a href="/terms">Terms and Conditions</a>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/contact">Contact Us</a>
-      </footer>
-    </div>
+    <MenuWrapper>
+      <Menu aria-label="Warning about next steps">
+        <Side>
+          <CloseButton onClick={onDismiss}>
+            <Icon id="close" strokeWidth={2} />
+            <VisuallyHidden>
+              <button>Close</button>
+            </VisuallyHidden>
+          </CloseButton>
+        </Side>
+
+        <Nav>
+          <NavItem href="/sale">Sale</NavItem>
+          <NavItem href="/new">New&nbsp;Releases</NavItem>
+          <NavItem href="/men">Men</NavItem>
+          <NavItem href="/women">Women</NavItem>
+          <NavItem href="/kids">Kids</NavItem>
+          <NavItem href="/collections">Collections</NavItem>
+        </Nav>
+
+        <Side>
+          <Footer>
+            <FooterLink href="/terms">Terms and Conditions</FooterLink>
+            <FooterLink href="/privacy">Privacy Policy</FooterLink>
+            <FooterLink href="/contact">Contact Us</FooterLink>
+          </Footer>
+        </Side>
+      </Menu>
+    </MenuWrapper>
   );
 };
 
+const Side = styled.div`
+  flex: 1;
+`;
+
+const CloseButton = styled(UnstyledButton)`
+  color: ${COLORS.gray[900]};
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const MenuWrapper = styled(DialogOverlay)`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+
+  background-color: white;
+  height: 100vh;
+
+  box-shadow: 2px 2px 4px #000000;
+`;
+
+const Menu = styled(DialogContent)`
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  height: 100%;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+`;
+
+const NavItem = styled.a`
+  text-decoration: none;
+  text-transform: uppercase;
+
+  font-size: ${18 / 16}rem;
+  font-weight: 600;
+  line-height: ${21 / 16}rem;
+
+  color: ${COLORS.gray[900]};
+
+  &:first-of-type {
+    color: ${COLORS.secondary};
+  }
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+
+  justify-content: flex-end;
+`;
+
+const FooterLink = styled.a`
+  text-decoration: none;
+
+  color: ${COLORS.gray[700]};
+
+  font-size: ${14 / 16}rem;
+  font-weight: 500;
+  line-height: ${16 / 16}rem;
+`;
 export default MobileMenu;
