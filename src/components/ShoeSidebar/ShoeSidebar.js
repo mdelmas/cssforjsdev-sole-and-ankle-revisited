@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { WEIGHTS } from "../../constants";
-
 const Sidebar = () => {
   return (
     <Wrapper>
@@ -28,7 +26,7 @@ const Wrapper = styled.aside``;
 const Link = styled.a`
   display: block;
   text-decoration: none;
-  font-weight: ${WEIGHTS.medium};
+  font-weight: var(--weight-medium);
   color: var(--color-gray-800);
   line-height: 2;
 `;

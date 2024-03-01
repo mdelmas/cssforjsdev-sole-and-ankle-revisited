@@ -6,7 +6,7 @@ import ShoeIndex from "../ShoeIndex";
 
 import { ThemeProvider } from "styled-components";
 
-import { COLORS, QUERIES } from "../../constants";
+import { COLORS, QUERIES, WEIGHTS } from "../../constants";
 
 const App = () => {
   const [sortId, setSortId] = React.useState("newest");
@@ -34,6 +34,10 @@ const AppWrapper = styled.div`
   --color-gray-500: ${COLORS.gray[500]};
   --color-gray-700: ${COLORS.gray[700]};
   --color-gray-900: ${COLORS.gray[900]};
+
+  --weight-normal: ${WEIGHTS.normal};
+  --weight-medium: ${WEIGHTS.medium};
+  --weight-bold: ${WEIGHTS.bold};
 `;
 
 const Main = styled.main`
