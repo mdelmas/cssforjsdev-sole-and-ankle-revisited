@@ -14,14 +14,15 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   }
 
   return (
-    <MenuWrapper>
-      <Menu aria-label="Warning about next steps">
+    <MenuWrapper isOpen={isOpen}>
+      <Menu
+        aria-label="Mobiel menu"
+        style={{ boxShadow: "0px 0px 0px 10000px hsla(0, 0%, 0%, 0.5)" }}
+      >
         <Side>
           <CloseButton onClick={onDismiss}>
             <Icon id="close" strokeWidth={2} />
-            <VisuallyHidden>
-              <button>Close</button>
-            </VisuallyHidden>
+            <VisuallyHidden>Close</VisuallyHidden>
           </CloseButton>
         </Side>
 
@@ -65,10 +66,8 @@ const MenuWrapper = styled(DialogOverlay)`
   bottom: 0;
   width: 300px;
 
-  background-color: white;
+  background: hsl(0deg 0% 0% / 0.5);
   height: 100vh;
-
-  box-shadow: 2px 2px 4px #000000;
 `;
 
 const Menu = styled(DialogContent)`
@@ -76,6 +75,8 @@ const Menu = styled(DialogContent)`
   flex-direction: column;
   padding: 32px;
   height: 100%;
+
+  background-color: white;
 `;
 
 const Nav = styled.nav`
