@@ -15,7 +15,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
     <MenuWrapper isOpen={isOpen}>
       <Menu
-        aria-label="Mobiel menu"
+        aria-label="Mobile menu"
         style={{ boxShadow: "0px 0px 0px 10000px hsla(0, 0%, 0%, 0.5)" }}
       >
         <Side>
