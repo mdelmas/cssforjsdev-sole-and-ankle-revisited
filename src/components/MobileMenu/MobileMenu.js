@@ -6,7 +6,6 @@ import { DialogOverlay, DialogContent } from "@reach/dialog";
 import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon";
 import VisuallyHidden from "../VisuallyHidden";
-import { COLORS } from "../../constants";
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   if (!isOpen) {
@@ -52,7 +51,7 @@ const Side = styled.div`
 `;
 
 const CloseButton = styled(UnstyledButton)`
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-100);
   width: 100%;
 
   display: flex;
@@ -93,10 +92,10 @@ const NavItem = styled.a`
   font-weight: 600;
   line-height: ${21 / 16}rem;
 
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
@@ -112,7 +111,7 @@ const Footer = styled.footer`
 const FooterLink = styled.a`
   text-decoration: none;
 
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
 
   font-size: ${14 / 16}rem;
   font-weight: 500;
