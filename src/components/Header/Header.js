@@ -31,6 +31,7 @@ const Header = () => {
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
         </DesktopNav>
         <Side />
       </MainHeaderDesktop>
@@ -66,6 +67,8 @@ const MainHeaderDesktop = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow-x: scroll;
+  overflow-y: hidden;
 
   @media ${(props) => props.theme.queries.tabletAndDown} {
     display: none;
@@ -74,7 +77,7 @@ const MainHeaderDesktop = styled.div`
 
 const DesktopNav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 8vw - 3.75rem, 3rem);
   margin: 0px 48px;
 `;
 
